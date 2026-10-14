@@ -112,7 +112,79 @@ centra sus columnas horizontalmente. -->
                                 <label for="ninos" class="form-label">Cantidad de niños a cargo</label>
                                 <input type="number" class="form-control" id="ninos" name="ninos" min="0" value="0" required>
                             </div>
-<!-- Aquí se ubicarán el formulario y la tarjeta de resultados -->
+                 <!-- Madre cabeza de familia -->
+                            <div class="mb-3">
+                                <label class="form-label d-block">¿Es madre cabeza de familia?</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="madreCabeza" id="madreSi" value="Sí">
+                                    <label class="form-check-label" for="madreSi">Sí</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="madreCabeza" id="madreNo" value="No" checked>
+                                    <label class="form-check-label" for="madreNo">No</label>
+                                </div>
+                            </div>
+
+                            <!-- Técnico o Tecnólogo -->
+                            <div class="mb-3">
+                                <label class="form-label d-block">¿Está realizando un técnico o tecnólogo?</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="estudio" id="estudioSi" value="Sí">
+                                    <label class="form-check-label" for="estudioSi">Sí</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="estudio" id="estudioNo" value="No" checked>
+                                    <label class="form-check-label" for="estudioNo">No</label>
+                                </div>
+                            </div>
+
+                            <!-- Géneros de cine -->
+                            <div class="mb-4">
+                                <label class="form-label d-block">Géneros de cine que prefiere:</label>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="generos" value="Acción" id="accion">
+                                            <label class="form-check-label" for="accion">Acción</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="generos" value="Comedia" id="comedia">
+                                            <label class="form-check-label" for="comedia">Comedia</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="generos" value="Drama" id="drama">
+                                            <label class="form-check-label" for="drama">Drama</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="generos" value="Terror" id="terror">
+                                            <label class="form-check-label" for="terror">Terror</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="generos" value="Ciencia Ficción" id="scifi">
+                                            <label class="form-check-label" for="scifi">Ciencia Ficción</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="generos" value="Romance" id="romance">
+                                            <label class="form-check-label" for="romance">Romance</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Botón de Envío -->
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    Enviar y mostrar respuestas
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
       </div>
      </div>
    </div>
