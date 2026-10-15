@@ -196,6 +196,53 @@ centra sus columnas horizontalmente. -->
             </div>
       </div>
      </div>
-   </div>
+   </div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('formularioBootstrap').addEventListener('submit', function(e) {
+            e.preventDefault(); // Previene la recarga de la página
+            
+            // Captura de valores
+            const nombres = document.getElementById('nombres').value;
+            const apellidos = document.getElementById('apellidos').value;
+            const fecha = document.getElementById('fechaNacimiento').value;
+            const ninos = document.getElementById('ninos').value;
+            const madre = document.querySelector('input[name="madreCabeza"]:checked').value;
+            const estudio = document.querySelector('input[name="estudio"]:checked').value;
+
+            // Captura de múltiples checkboxes
+            const generosSeleccionados = [];
+            document.querySelectorAll('input[name="generos"]:checked').forEach(cb => {
+                generosSeleccionados.push(cb.value);
+            });
+            const generosTexto = generosSeleccionados.length > 0 ? generosSeleccionados.join(', ') : 'Ninguno seleccionado';
+
+            // Estructura de datos a presentar
+            const respuestas = [
+                ['Nombres', nombres],
+                ['Apellidos', apellidos],
+                ['Fecha de nacimiento', fecha],
+                ['Cantidad de niños a cargo', ninos],
+                ['Madre cabeza de familia', madre],
+                ['Está realizando técnico/tecnólogo', estudio],
+                ['Géneros de cine preferidos', generosTexto]
+            ];
+
+            // Renderizado dinámico en el DOM
+            const contenidoResultados = document.getElementById('contenidoResultados');
+            contenidoResultados.replaceChildren(...respuestas.map(([etiqueta, valor]) => {
+                const parrafo = document.createElement('p');
+                const titulo = document.createElement('strong');
+                titulo.textContent = `${etiqueta}:`;
+                parrafo.append(titulo, ` ${valor}`);
+                return parrafo;
+            }));
+
+            // Muestra el contenedor y desplaza la vista hacia los resultados
+            document.getElementById('resultados').style.display = 'block';
+            document.getElementById('resultados').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
