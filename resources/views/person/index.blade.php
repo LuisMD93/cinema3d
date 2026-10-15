@@ -59,7 +59,7 @@
                                     {{ $person->generos }}
                                 @endif
                             </td>
-
+                           {{-- <b>{{ $person->id}}</b> --}}
                             <td class="text-center">
                                 <div class="d-flex justify-content-center gap-2">
 

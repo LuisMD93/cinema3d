@@ -28,8 +28,8 @@ class PersonController extends Controller {
             'apellidos'       => 'required|string|max:255',
             'fechaNacimiento' => 'required|date',
             'ninos'           => 'required|integer|min:0',
-            'madreCabeza'     => 'required|in:Sí,No',
-            'estudio'         => 'required|in:Sí,No',
+            'madreCabeza'     => 'required|in:Si,No',
+            'estudio'         => 'required|in:Si,No',
             'generos'         => 'nullable|array',
             'generos.*'       => 'string', 
          ]);
@@ -37,7 +37,7 @@ class PersonController extends Controller {
        if($validator->fails()){
                 return back()->withErrors($validator)->withInput();
        }else{
-               //dd($request->all());
+               
                Person::create($request->all());
                return redirect("/person")->with('type','success')->with('message','Registro creado exitosamente');
         }
@@ -47,21 +47,29 @@ class PersonController extends Controller {
 
     function edit(string $id) {
 
-        $dataPerson = Person::find($id);
-        return View('Person.edit',compact('dataPerson'));
+        $person = Person::find($id);
+        return View('person.edit',compact('person'));
     }
 
 
-    function update(Request $request ,Person $Person) {
+    function update(Request $request ,Person $person) {
      
-        #return response()->json($request);
-        $validator = Validator::make($request->all(),["name_Person"=>"required|max:50","description"=>"required|max:150"]);
+        $validator =  Validator::make($request->all(),[
+            'nombres'         => 'required|string|max:255',
+            'apellidos'       => 'required|string|max:255',
+            'fecha_nacimient' => 'required|date',
+            'ninos'           => 'required|integer|min:0',
+            'madre_cabeza'     => 'required|in:Si,No',
+            'estudio'         => 'required|in:Si,No',
+            'generos'         => 'nullable|array',
+            'generos.*'       => 'string', 
+         ]);
 
         if($validator->fails()){
                return back()->withErrors($validator)->withInput();
         }else{
-               $Person->update($request->all());
-               return redirect("/Person")->with('type','warning')->with('message','Registro actualizado exitosamente');
+               $person->update($request->all());
+               return redirect("/person")->with('type','warning')->with('message','Registro actualizado exitosamente');
         }
       
     }
@@ -70,6 +78,6 @@ class PersonController extends Controller {
     function destroy(string $id) {
      
                Person::destroy($id);
-               return redirect("/Person")->with('type','danger')->with('message','Registro se elimino exitosamente');
+               return redirect("/person")->with('type','danger')->with('message','Registro se elimino exitosamente');
     }
 }
