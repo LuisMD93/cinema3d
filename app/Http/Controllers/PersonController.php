@@ -26,9 +26,9 @@ class PersonController extends Controller {
          $validator =  Validator::make($request->all(),[
             'nombres'         => 'required|string|max:255',
             'apellidos'       => 'required|string|max:255',
-            'fechaNacimiento' => 'required|date',
+            'fecha_nacimient' => 'required|date',
             'ninos'           => 'required|integer|min:0',
-            'madreCabeza'     => 'required|in:Si,No',
+            'madre_cabeza'    => 'required|in:Si,No',
             'estudio'         => 'required|in:Si,No',
             'generos'         => 'nullable|array',
             'generos.*'       => 'string', 
